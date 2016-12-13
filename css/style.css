@@ -1,0 +1,342 @@
+
+#title {
+	padding-bottom: 60px;
+
+}
+
+/*https://css-tricks.com/snippets/jquery/simple-auto-playing-slideshow/*/
+
+.page-header {
+	margin-top: 60px;
+}
+
+body {
+	font-family: 'Neuton', serif;
+	overflow: scroll;
+}
+
+h1 {
+	font-size: 36px;
+	color: #825a5a;
+	margin-top: 40px;
+}
+
+h2 {
+	color: #94a97a;
+	font-size: 24px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.brush {
+	fill: #ccc;
+	fill-opacity: .5;
+	/*pointer-events: none;*/
+}
+
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #555;
+  shape-rendering: crispEdges;
+}
+
+.tick text {
+	font-family: sans-serif;
+	font-size: 11px;
+	fill: #555;
+}
+
+#priovis .x-axis text {
+	font-weight: 600;
+}
+
+.area {
+	fill: #825a5a;
+}
+
+.area.area-age {
+	fill: #94a97a;
+}
+
+.bar {
+	fill: #93bebf;
+}
+
+.align{
+	float:left;
+	margin-right: 5px
+}
+
+/* header layout from http://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_horizontal_black_fixed*/
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+	background-color: lightgray;
+}
+
+li {
+	float: left;
+}
+li .d {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li .d:hover:not(.active) {
+	background-color: #2e6da4;
+}
+
+.active {
+	background-color: #faebcc;
+}
+
+
+.countries {
+	fill: #aaa;
+	stroke: white;
+	stroke-width: .5px;
+	stroke-linejoin: round;
+}
+
+.countries.active {
+    fill: orange;
+}
+
+.graticule {
+	fill: none;
+	stroke: #000;
+	stroke-opacity: .3;
+	stroke-width: .5px;
+}
+
+.graticule.outline {
+	stroke: #333;
+	stroke-opacity: 1;
+	stroke-width: 1.5px;
+}
+
+#title {
+	/*background-image: url('../img/malaria1.png');*/
+	background-image: url(http://www.uglydogbooks.com/wp-content/uploads/2014/04/books.jpg);
+	background-size: cover;
+	height: 600px;
+	width: 100%;
+	display:inline-block;
+
+}
+
+
+
+.title_text{
+	/*margin-top: 150px;*/
+	/*margin-bottom: 100px;*/
+	/*margin-right: 150px;*/
+	/*margin-left: 80px;*/
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	color: #94a97a;
+	font-weight: bold;
+	font-size: 50px;
+}
+
+.sub_text{
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	font-size: 26px;
+}
+
+.center {
+	text-align: center;
+}
+
+.opaque {
+	width: 100%;
+	float: left;
+}
+.form-group{
+    /*display:inline-block;*/
+    /*text-align:center;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+	padding: 15px;
+}
+
+
+#africa {
+	background: rgba(0, 0, 0, 0.3);
+	/*display:inline-block;*/
+
+}
+
+p {
+	margin-top: 50px;
+	margin-bottom: 0px;
+	margin-right: 50px;
+	margin-left: 80px;
+}
+
+#slideshow {
+	margin: 50px auto;
+	position: relative;
+	width: 750px;
+	height: 250px;
+	padding: 10px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.4);
+	background: url('http://whytoread.com/wp-content/uploads/2015/05/Books-That-Will-Make-You-Change-Your-Life.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	opacity: 1;
+}
+
+#slideshow > div {
+	position: absolute;
+	top: 30px;
+	left: 10px;
+	right: 10px;
+	bottom: 10px;
+	font-size: 20px;
+	color: white;
+}
+
+#slider-range1, #slider-range2, #slider-range3,#slider-range4,#slider-range5 {
+	width: 50%;
+	margin-left: auto ;
+	margin-right: auto ;
+}
+
+.tooltips {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    line-height: 20px;
+    padding: 3px;
+    font-size: 11px;
+    text-align: center;
+    color: black;
+    background: lightgray;
+    border: 4px solid lightgray;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.6) 1px 1px 2px 0px;
+}
+
+
+.tooltips:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color: lightgray transparent transparent transparent;
+    top: 110px;
+    left: 82px;
+}
+
+.tooltips img {
+    padding: 0px 4px 0px 0px;
+    vertical-align: middle;
+}
+
+.tooltips p {
+    font-size: 12px;
+    margin: 0 0 0 0;
+    line-height: 12px;
+}
+
+.dot:hover{
+    fill: red;
+}
+
+td {
+	padding: 15px;
+	text-align: center;
+}
+
+table {
+	border-spacing: 2px;
+}
+
+/* Style from https://teamtreehouse.com/community/how-to-use-affix-in-bootstrap-to-create-a-sticky-navigation-bar-css-preferred*/
+.jumbotron {
+	min-height: 650px;
+}
+
+.navbar-default {
+	background-color: gray;
+	position: fixed;
+}
+
+.affix {
+	position: fixed;
+}
+
+.sliders{
+	margin: 50px;
+}
+.sliders a{
+	font-size: 15px;
+	text-decoration: none;
+	margin: 0 5px;
+}
+
+
+.table-wrapper {
+	border: none;
+	width: 300px;
+	height: 500px;
+	overflow: auto;
+	background-color: #f5f5f5;
+	position: absolute;
+	/*right: 20px;*/
+	/*top: 50px;*/
+	overflow: scroll;
+	float:right;
+	right:10px;
+}
+
+.nav-primary {
+	border-top: 2px dashed #046ca3;
+	border-bottom: 1px dashed #046ca3;
+	box-shadow: inset 0 -1px 0 0 #046ca3, inset 0 1px 0 0 #046ca3, 0 1px 0 0 #046ca3, 0 -1px 0 0 #046ca3;
+	margin-bottom: 1px;
+
+}
+
+
+
+/*#bar-chart1{*/
+	/*float: left;*/
+	/*width:1600px;*/
+/*}*/
+/*#college_list{*/
+	/*float:right;*/
+/*}*/
+
+svg {
+	width: 90%;
+	viewBox: "0 0 10 10";
+}
+
+
+#tools{
+	padding: 15px;
+
+}
+
+.navtag {
+	transform: translateY(-60px);
+}
+
+#top10-schools{
+	background-color: #f2dede;
+}

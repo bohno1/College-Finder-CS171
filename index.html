@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CS171 - Final Project</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Neuton:300,400,400i,700,800" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	<!-- CSS libraries -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<!--<link rel="stylesheet" href="css/colorbrewer.css"> -->
+
+
+	<!-- Custom CSS code -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle-navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#"><font color="white">Kylie Hung and Ben Ohno</font></a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right d">
+				<li><a class="active" href=""><span class="glyphicon glyphicon-home"></span> Home</a></li>
+				<li><a href="#info"><span class="glyphicon glyphicon-info-sign"></span> Facts</a></li>
+				<li><a href="#map"><span class="glyphicon glyphicon-map-marker"></span> Map Finder</a></li>
+				<li><a href="#filter"><span class="glyphicon glyphicon-filter"></span> College Filter</a></li>
+				<li><a href="#pref"><span class="glyphicon glyphicon-flag"></span> Recommendations</a></li>
+				<li><a href="#tips"><span class="glyphicon glyphicon-comment"></span> Tips</a></li>
+				<!--<li><a href="#water">Debt</a></li>-->
+
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+<div id = "title">
+
+	<h1><span class="h1-sub title_text">College Finder</span></h1><br><br>
+				<h2 class = "sub_text">From Harvard to your local community college, we have them all </h2>
+
+</div>
+
+<div class = "opaque" id="info">
+	<h2><strong><center><font size="18">Current Facts</font></center></strong></h2>
+	<div id="slideshow" class = "center">
+		<div> <strong>Attendance: </strong>
+			In fall 2016, some 20.5 million students are expected to attend American colleges and universities, constituting an increase of about 5.2 million since fall 2000.
+		</div>
+		<div>
+			<strong>Average Annual Price: </strong> For the 2014–15 academic year, the average annual price for undergraduate tuition, fees, room, and board was $16,188 at public institutions, $41,970 at private nonprofit institutions, and $23,372 at private for-profit institutions.
+		</div>
+		<div>
+			<strong>Gender Ratio: </strong> Females are expected to account for the majority of college students: about 11.7 million females will attend in fall 2016, compared with 8.8 million males.
+		</div>
+		<div>
+			<strong>Diversity: </strong>Between 2000 and 2014, the percentage of college students who were Black rose from 11.7 to 14.5 percent, and the percentage of students who were Hispanic rose from 9.9 to 16.5 percent.
+		</div>
+
+	</div>
+</div>
+
+
+
+<h2><center><strong><font size="20"><a id="map"></a>Map Finder</font></strong></center></h2>
+
+<div id="choropleth">
+
+<div class="sliders">
+<table style = "width: 100%">
+	<tr>
+		<td style="width: 50%">
+			<label for="amount1">
+				 <span class=""><a class='my-tool-tip' data-toggle="tooltip" data-placement="left" title="This is the average tuition for each college.">
+                <i class='glyphicon glyphicon-info-sign'></i>
+            </a></span>
+				Tuition:</label>
+			<input type="text" id="amount1" readonly style="border:0; color:#f6931f; font-weight:bold;">
+			<div id="slider-range1"></div>
+
+		</td>
+
+		<td style="width: 50%">
+			<label for="amount4">
+				<span class=""><a class='my-tool-tip' data-toggle="tooltip" data-placement="left" title="This is the graduation rate for each college.">
+                <i class='glyphicon glyphicon-info-sign'></i>
+            </a></span>
+				Graduation Rate: </label>
+			<input type="text" id="amount4" readonly style="border:0; color:#f6931f; font-weight:bold;">
+			<div id="slider-range4"></div>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="width: 50%">
+			<label for="amount2">
+				 <span class=""><a class='my-tool-tip' data-toggle="tooltip" data-placement="left" title="This is the average SAT score out of 1600 for each college. ">
+                <i class='glyphicon glyphicon-info-sign'></i>
+            </a></span>
+				SAT:</label>
+			<input type="text" id="amount2" readonly style="border:0; color:#f6931f; font-weight:bold;">
+			<div id="slider-range2"></div>
+		</td>
+
+		<td style="width: 50%">
+			<label for="amount3">
+				 <span class=""><a class='my-tool-tip' data-toggle="tooltip" data-placement="left" title="This is the average ACT score out of 36 for each college.">
+                <i class='glyphicon glyphicon-info-sign'></i>
+            </a></span>
+				ACT:</label>
+			<input type="text" id="amount3" readonly style="border:0; color:#f6931f; font-weight:bold;">
+			<div id="slider-range3"></div>
+		</td>
+	</tr>
+</table>
+</div>
+</div>
+
+<a id="filter"></a>
+<div class="container-fluid">
+
+
+	<form class="form-inline">
+		<div class="form-group">
+			<label for="rankingType">Select your axis: </label>
+			<select class="form-control" id="ranking-type" id="select-box" onchange = "updateMap()">
+				<option value="COST">Tuition ($)</option>
+				<option value="SAT_AVG_ALL">SAT Scores</option>
+				<option value="ACTCMMID">ACT Scores</option>
+				<option value="C100_41">Graduation Rate</option>
+
+			</select>
+		</div>
+		</form>
+	</div>
+
+	<div class="row">
+
+<div id = "bar-chart1" class="col-md-10"></div>
+		<h3>List of Schools</h3>
+<div id="college_list" class = "table-wrapper nav-primary col-md-2"><center>Click on a bar for a list of schools</center></div>
+</div>
+</div>
+
+<a id="pref"></a>
+<div class="container">
+	<div row="row">
+		<h3><center> Based on your preferences: </center></h3>
+	<div class="col-md-3" id="top5-cost"></div>
+	<div class="col-md-3" id="top5-SAT"></div>
+		<div class="col-md-3" id="top5-ACT"></div>
+		<div class="col-md-3" id="top5-Grad"></div>
+	</div>
+</div>
+
+<div id = "top10-schools"></div>
+
+<a id="tips"></a>
+<div id = "tools">
+	<div class= "container-fluid">
+
+		<h2><center><font size="16"><strong>Tools, Tips, and Tricks</strong></font></center></h2>
+			<div class = "row">
+				<div class = "col-md-3">
+					<h3>SAT and Act:</h3>
+					<a target="_blank" href = "https://www.princetonreview.com/college/sat-act"> Should I take the SAT or ACT? </a>
+					<br>
+					<a target="_blank" href= "http://www.collegedata.com/cs/content/content_getinarticle_tmpl.jhtml?articleId=10182">Tips on improving your score </a>
+					<br>
+					<br>
+				</div>
+		<div class = "col-md-3">
+					<h3>College Applications:</h3>
+					<a target="_blank" href=" http://www.collegedata.com/cs/content/content_getinarticle_tmpl.jhtml?articleId=10049">Applications Dos and Don'ts</a>
+					<br>
+					<a target="_blank" href=" https://bigfuture.collegeboard.org/get-in/applying-101/tips-for-preparing-your-college-application">Tips on preparing for your college application</a>
+					<br>
+					<br>
+			</div>
+			<div class = "col-md-3">
+					<h3>College Essays:</h3>
+					<a target="_blank" href=" https://bigfuture.collegeboard.org/get-in/essays/tips-for-writing-an-effective-application-essay-college-admissions">Tips on writing an effective essay </a>
+					<br>
+					<a target="_blank" href="http://www.collegedata.com/cs/content/content_getinarticle_tmpl.jhtml?articleId=10057">Tips to improve your essay </a>
+					<br>
+					<br>
+				</div>
+		<div class = "col-md-3">
+					<h3>College Interview Tips:</h3>
+					<a target="_blank" href="https://www.princetonreview.com/college-advice/college-interview-tips">College Interview Tips</a>
+					<br>
+					<a target="_blank" href="http://blog.prepscholar.com/college-interview-questions-you-should-prepare-for">Interview Example Questions</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div><p align="right"><font size="4">Video Link | Process Book</font></p></div>
+
+	<!-- Load JS libraries -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/queue.v1.min.js"></script>
+	<script src="js/d3.min.js"></script>
+	<script src="js/topojson.js"></script>
+	<script src="js/colorbrewer.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+	var d3_v4 = d3;
+</script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+	var d3_v3 = d3;
+</script>
+
+<script src ="js/college-map.js"></script>
+
+
+
+	<!-- Load data, create visualizations -->
+	<script src="js/main.js"></script>
+
+
+</body>
+</html>
